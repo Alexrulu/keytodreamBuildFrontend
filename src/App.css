@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: false;
+}
+
+@theme {
+  --font-lora: "Lora", serif;
+  --font-inter: "Inter", sans-serif;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.parallax-grid {
+  background: white;
+  --gap: 5em;
+  --line: 1px;
+  --color: rgba(0, 0, 0, 0.05);
+
+  background-image: linear-gradient(
+      -90deg,
+      transparent calc(var(--gap) - var(--line)),
+      var(--color) calc(var(--gap) - var(--line) + 1px),
+      var(--color) var(--gap)
+    ),
+    linear-gradient(
+      0deg,
+      transparent calc(var(--gap) - var(--line)),
+      var(--color) calc(var(--gap) - var(--line) + 1px),
+      var(--color) var(--gap)
+    );
+
+  background-size: var(--gap) var(--gap);
+  background-position: 0 0;
+  transition: background-position 1s ease-out
+}
+
+.custom-toast {
+  font-family: 'Lora', serif !important
+}
+
+
+
+
+
+
