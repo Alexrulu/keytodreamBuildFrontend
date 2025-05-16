@@ -24,7 +24,7 @@ const Article = () => {
   }, [user]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/properties/${id}`)
+    fetch(`https://keytodreambuildbackend-production.up.railway.app/api/properties/${id}`)
       .then(response => response.json())
       .then(data => { setProperty(data)
         const allImages = [data.principalImage, ...(data.secondaryImages || [])]
@@ -38,7 +38,7 @@ const Article = () => {
 
   const handleUpdate = async (updatedProperty) => {
     try {  
-      const response = await fetch(`http://localhost:5000/api/properties/edit/${id}`, {
+      const response = await fetch(`https://keytodreambuildbackend-production.up.railway.app/api/properties/edit/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ const Article = () => {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/properties/delete/${id}`, {
+      const response = await fetch(`https://keytodreambuildbackend-production.up.railway.app/api/properties/delete/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -95,7 +95,7 @@ const Article = () => {
       newFavorites.add(propertyId);
     }
     try {
-      const response = await fetch(`http://localhost:5000/api/users/edit`, {
+      const response = await fetch(`https://keytodreambuildbackend-production.up.railway.app/api/users/edit`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -124,7 +124,7 @@ const Article = () => {
             {images.slice(0, 4).map((img, index) => {
               return (
                 <div key={index} id={`property-slide${index}`} className="carousel-item relative w-full">
-                  <img onClick={() => setImagesOpen(true)} src={`http://localhost:5000${img}`} className="w-full object-cover h-full cursor-pointer hover:brightness-90 transition" />
+                  <img onClick={() => setImagesOpen(true)} src={`https://keytodreambuildbackend-production.up.railway.app${img}`} className="w-full object-cover h-full cursor-pointer hover:brightness-90 transition" />
                 </div>
               )
             })}
@@ -132,7 +132,7 @@ const Article = () => {
           <div className='grid grid-cols-2 grid-rows-2 h-1/2 sm:h-1/3 gap-2 2xl:gap-3 md:grid md:h-full sm:flex w-full overflow-hidden'>
             {images.slice(0, 4).map((img, index) => (
               <div key={index} className="relative w-full h-full">
-                <img src={`http://localhost:5000${img}`}
+                <img src={`https://keytodreambuildbackend-production.up.railway.app${img}`}
                   onClick={() => {
                     document.getElementById(`property-slide${index}`)?.scrollIntoView({
                       behavior: 'smooth',
@@ -259,7 +259,7 @@ const Article = () => {
                 {images.slice(0, 4).map((img, index) => {
                   return (
                     <div key={index} id={`carousel2-slide${index}`} className="carousel-item relative w-full">
-                      <img src={`http://localhost:5000${img}`} className="w-full object-cover h-full" />
+                      <img src={`https://keytodreambuildbackend-production.up.railway.app${img}`} className="w-full object-cover h-full" />
                     </div>
                   )
                 })}
@@ -267,7 +267,7 @@ const Article = () => {
               <div className='flex h-1/4 w-full overflow-hidden gap-2 2xl:gap-3'>
                 {images.slice(0, 4).map((img, index) => (
                   <div key={index} className="relative w-full h-full">
-                    <img src={`http://localhost:5000${img}`} onClick={() => {document.getElementById(`carousel2-slide${index}`)?.scrollIntoView({
+                    <img src={`https://keytodreambuildbackend-production.up.railway.app${img}`} onClick={() => {document.getElementById(`carousel2-slide${index}`)?.scrollIntoView({
                       behavior: 'smooth', block: 'nearest', inline: 'center',})}} className='w-full h-full object-cover cursor-pointer hover:brightness-90 transition rounded-xl'/>
                   </div>
                 ))}

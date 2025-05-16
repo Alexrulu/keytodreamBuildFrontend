@@ -14,7 +14,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await fetch('http://localhost:5000/api/users/login', {
+      const response = await fetch('https://keytodreambuildbackend-production.up.railway.app/api/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ const Login = () => {
         const token = data.token;
         const storage = remember ? localStorage : sessionStorage
         storage.setItem("token", token);
-        const userRes = await fetch('http://localhost:5000/api/users/me', {
+        const userRes = await fetch('https://keytodreambuildbackend-production.up.railway.app/api/users/me', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

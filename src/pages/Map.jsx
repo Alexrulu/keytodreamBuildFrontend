@@ -44,7 +44,7 @@ const Map = () => {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/properties')
+        const response = await fetch('https://keytodreambuildbackend-production.up.railway.app/api/properties')
         const data = await response.json()
         data.forEach((property) => {
           obtenerCoordenadas(property.adress, property.city, property)
@@ -84,7 +84,7 @@ const Map = () => {
                 <p style={{width:'auto', margin:'0 auto 2px 0', fontSize:'1em', lineHeight:'1.2', padding:'2px 4px', backgroundColor:'rgba(0, 0, 0, 0.1)', borderRadius:'12px'}}>USD ${property.price}</p>
                 <p style={{width:'100%', margin:'0 auto 2px 0', fontSize:'1em', lineHeight:'1.2', fontStyle:'italic'}}>{property.city}</p>
                 <Link to={`/article/${property.id}`} style={{ width: '100%'}}>
-                <img src={`http://localhost:5000${property.principalImage}`} alt="Imagen de propiedad" style={{ width: '100%',height: '100px',objectFit: 'cover',borderRadius: '8px'}}/>
+                <img src={`https://keytodreambuildbackend-production.up.railway.app${property.principalImage}`} alt="Imagen de propiedad" style={{ width: '100%',height: '100px',objectFit: 'cover',borderRadius: '8px'}}/>
                 </Link>
               </div>
             </Popup>

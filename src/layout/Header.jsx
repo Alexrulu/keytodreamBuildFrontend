@@ -35,7 +35,7 @@ const Header = () => {
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/properties')
+        const res = await fetch('https://keytodreambuildbackend-production.up.railway.app/api/properties')
         const allProperties = await res.json()
         const favorites = user?.favoritos?.length
           ? allProperties.filter((prop) => user.favoritos.includes(prop.id))
@@ -52,7 +52,7 @@ const Header = () => {
   const fetchUserProperties = async () => {
     if (!user || !token) return
       try {
-        const res = await fetch(`http://localhost:5000/api/properties/owner/${user.id}`, {
+        const res = await fetch(`https://keytodreambuildbackend-production.up.railway.app/api/properties/owner/${user.id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -69,7 +69,7 @@ const Header = () => {
 
   const handleUpdate = async (updatedUser) => {
     try {  
-      const response = await fetch(`http://localhost:5000/api/users/edit`, {
+      const response = await fetch(`https://keytodreambuildbackend-production.up.railway.app/api/users/edit`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -93,7 +93,7 @@ const Header = () => {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/users/delete/${id}`, {
+      const response = await fetch(`https://keytodreambuildbackend-production.up.railway.app/api/users/delete/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -234,7 +234,7 @@ const Header = () => {
                                 <p className="text-xs italic truncate">{property.city}</p>
                                 <p className="text-sm truncate">${property.price}</p>
                               </div>
-                              <img className="w-2/10 h-full rounded-xl object-cover" src={`http://localhost:5000${property.principalImage}`} />
+                              <img className="w-2/10 h-full rounded-xl object-cover" src={`https://keytodreambuildbackend-production.up.railway.app${property.principalImage}`} />
                             </Link>
                           ))}
                         </div>
@@ -262,7 +262,7 @@ const Header = () => {
                               <p className='text-xs italic truncate'>{property.city}</p>
                               <p className='text-sm truncate'>${property.price}</p>
                             </div>
-                            <img className='w-2/10 h-14 rounded-xl object-cover' src={`http://localhost:5000${property.principalImage}`}/>
+                            <img className='w-2/10 h-14 rounded-xl object-cover' src={`https://keytodreambuildbackend-production.up.railway.app${property.principalImage}`}/>
                           </Link>
                         ))
                       ) : (
@@ -343,7 +343,7 @@ const Header = () => {
                         <p className='text-xs italic truncate'>{property.city}</p>
                         <p className='text-sm truncate'>${property.price}</p>
                       </div>
-                      <img className='w-2/10 h-14 rounded-xl object-cover' src={`http://localhost:5000${property.principalImage}`}/>
+                      <img className='w-2/10 h-14 rounded-xl object-cover' src={`https://keytodreambuildbackend-production.up.railway.app${property.principalImage}`}/>
                     </Link>
                   ))
                 ) : (
@@ -431,7 +431,7 @@ const Header = () => {
                             <p className="text-xs italic truncate">{property.city}</p>
                             <p className="text-sm truncate">${property.price}</p>
                           </div>
-                          <img className="w-2/10 h-full rounded-xl object-cover" src={`http://localhost:5000${property.principalImage}`} />
+                          <img className="w-2/10 h-full rounded-xl object-cover" src={`https://keytodreambuildbackend-production.up.railway.app${property.principalImage}`} />
                         </Link>
                       ))}
                     </div>
