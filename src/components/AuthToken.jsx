@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
     setToken(storedToken)
     const fetchUser = async () => {
       try {
-        const res = await fetch("https://keytodreambuildbackend-production.up.railway.app/api/users/me", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/users/me`, {
           headers: {
             Authorization: `Bearer ${storedToken}`,
           },

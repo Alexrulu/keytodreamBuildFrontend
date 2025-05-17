@@ -20,7 +20,7 @@ const Main = () => {
   const [properties, setProperties] = useState([])
   const currentProperty = properties.slice(0,4)[currentIndex] || {}
   useEffect(() => {
-    fetch('https://keytodreambuildbackend-production.up.railway.app/api/properties')
+    fetch(`${import.meta.env.VITE_API_URL}/api/properties`)
       .then(response => response.json())
       .then(data => setProperties(data))
       .catch(error => console.error('Error al cargar las propiedades:', error))
@@ -41,7 +41,7 @@ const Main = () => {
           <p className="text-base text-zinc-700 mt-4 text-center sm:text-left">Lo mejor del mercado, elegido para ti.</p>
         </div>
         <div className='flex justify-center mt-6'>
-          <Carousel imgs={properties.slice(0,4).map(property => `https://keytodreambuildbackend-production.up.railway.app${property.principalImage}`)} onSlideChange={setCurrentIndex}/>
+          <Carousel imgs={properties.slice(0,4).map(property => `${import.meta.env.VITE_API_URL}${property.principalImage}`)} onSlideChange={setCurrentIndex}/>
         </div>
         <motion.div key={ currentIndex }
                 initial={{opacity:0   }}
@@ -101,7 +101,7 @@ const Main = () => {
           <Link to={`/article/${currentProperty.id}`} className='bg-black text-white py-1 px-2 w-1/2 text-center shadow-xl rounded-xl'>Ver propiedad</Link>
         </motion.div>
         {properties.length > 0 &&(
-          <Carousel imgs={properties.slice(0,4).map(property => `https://keytodreambuildbackend-production.up.railway.app${property.principalImage}`)} 
+          <Carousel imgs={properties.slice(0,4).map(property => `${import.meta.env.VITE_API_URL}${property.principalImage}`)} 
                 idPrefix={"recomended"} className='w-[50vw] h-[60vh]' onSlideChange={setCurrentIndex}/>
         )}
       </motion.div>

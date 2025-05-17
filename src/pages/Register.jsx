@@ -31,7 +31,7 @@ const Register = () => {
       return
     }
     try {
-      const response = await fetch('https://keytodreambuildbackend-production.up.railway.app/api/users/register', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

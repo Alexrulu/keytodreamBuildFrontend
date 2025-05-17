@@ -33,7 +33,7 @@ const Comprar = () => {
       newFavorites.add(propertyId)
     }
     try {
-      const response = await fetch(`https://keytodreambuildbackend-production.up.railway.app/api/users/edit`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users/edit`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ const Comprar = () => {
   }, [user])
 
   useEffect(() => {
-    fetch('https://keytodreambuildbackend-production.up.railway.app/api/properties')
+    fetch(`${import.meta.env.VITE_API_URL}/api/properties`)
       .then(response => response.json())
       .then(data => setProperties(data))
       .catch(error => console.error('Error al cargar las propiedades:', error))
@@ -81,7 +81,7 @@ const Comprar = () => {
           properties.filter(property => property.type === 1 && property.city.toLowerCase().includes(search)).map((property) => (
             <article key={property.id} className="relative overflow-hidden bg-zinc-100 justify-between h-[20vh] group w-full flex gap-1 text-zinc-800 text-sm rounded-xl shadow-lg 
               sm:h-[30vh] md:h-[20vh] duration-300 xl:shadow-none xl:overflow-visible xl:group xl:hover:shadow-[0_20px_10px_rgba(0,0,0,0.2)] xl:hover:-translate-y-2 xl:hover:scale-105">
-              <img src={`https://keytodreambuildbackend-production.up.railway.app${property.principalImage}`} onClick={() => toggleImgOpen(property.id)}
+              <img src={`${import.meta.env.VITE_API_URL}${property.principalImage}`} onClick={() => toggleImgOpen(property.id)}
              className={`w-1/2 object-cover cursor-pointer object-center rounded-xl duration-300 xl:group-hover:-translate-y-2
                       ${activeImgId === property.id ? 'w-[90%] sm:w-[95%] md:w-[90%]' : 'w-1/2'}`}/>
               <Link className={`p-2 flex flex-col justify-between overflow-hidden duration-300 ${activeImgId === property.id ? 'w-0 opacity-0' : 'w-1/2 opacity-100'}`} 

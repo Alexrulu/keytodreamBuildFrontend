@@ -124,7 +124,7 @@ const Post = () => {
       formData.append('secondaryImages', file)
     })
     try {
-      const response = await fetch('https://keytodreambuildbackend-production.up.railway.app/api/properties/posting', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/properties/posting`, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}` },
         body: formData,

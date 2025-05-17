@@ -25,14 +25,14 @@ const Admin = () => {
   )
 
   useEffect(() => {
-    fetch('https://keytodreambuildbackend-production.up.railway.app/api/users')
+    fetch(`${import.meta.env.VITE_API_URL}/api/users`)
       .then(response => response.json())
       .then(data => setUsers(data))
       .catch(error => console.error('Error al cargar los usuarios:', error))
   }, [])
 
   useEffect(() => {
-    fetch('https://keytodreambuildbackend-production.up.railway.app/api/properties')
+    fetch(`${import.meta.env.VITE_API_URL}/api/properties`)
       .then(response => response.json())
       .then(data => setProperties(data))
       .catch(error => console.error('Error al cargar las propiedades:', error))
@@ -40,7 +40,7 @@ const Admin = () => {
 
   const handleDeleteUser = async (id) => {
     try {
-      const response = await fetch(`https://keytodreambuildbackend-production.up.railway.app/api/users/delete/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users/delete/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -58,7 +58,7 @@ const Admin = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`https://keytodreambuildbackend-production.up.railway.app/api/properties/delete/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/properties/delete/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -146,7 +146,7 @@ const Admin = () => {
                 <p className='w-3/4 bg-zinc-100 font-inter rounded-xl px-2 h-19 overflow-y-auto'>{property.description}</p>
               </div>
               <Link to={`/article/${property.id}`}>
-              <img className='w-3/4 h-40 object-cover rounded-xl ml-auto' src={`https://keytodreambuildbackend-production.up.railway.app${property.principalImage}`} />
+              <img className='w-3/4 h-40 object-cover rounded-xl ml-auto' src={`${import.meta.env.VITE_API_URL}${property.principalImage}`} />
               </Link>
 
               <button className='fa-solid fa-trash text-white bg-red-900 cursor-pointer w-10 text-center h-10 absolute top-2 right-2 rounded-xl'
